@@ -27,7 +27,15 @@ def render_chars_to_images(text, font_path, output_dir="./rendered_outputs", ima
         print(f"[INFO] '{ch}' 저장 완료: {filepath}")
 
 if __name__ == '__main__':
-    test_text = "가각간한語言日英ABC123あいうえおカタカナ漢字"
+
+    content_sentence = set("그리고 모든 기적이 시작되는 곳" + \
+    "あまねく奇跡の始発点" + \
+    "Where All Miracles Begin")
+    
+    content_sentence = "".join(sorted(ch for ch in content_sentence if ch != ' '))
+    print(content_sentence)
+
+    test_text = content_sentence
     merged_font_path = "./ttf/NotoSans-Regular-KCJE.ttf"
 
     render_chars_to_images(test_text, merged_font_path)
